@@ -9,7 +9,8 @@
 
 - `index.html`: the single page; every lesson is a `<section>` inside `<main>`
 - `css/styles.css`: styles, including the light and dark theme colors
-- `js/main.js`: lesson switching (one section shown at a time), the progress bar and the theme toggle
+- `js/main.js`: lesson switching (one section shown at a time), the progress bar, the check-in questions and the theme toggle
+- `js/simulator.js`: the PID tuner simulator (sliders, live graph, plain-language results)
 
 ## Design
 
@@ -43,6 +44,9 @@ between them; there are no separate pages):
    two identical title slides are one Welcome section and the Learning
    Objective comes right after it
 3. Discussion slides become a question with a "Show a sample answer" reveal
+4. Content lessons end with one multiple-choice check-in question
+5. One extra lesson that is not from the deck: the PID tuner simulator,
+   right after the P, PI and PID lesson
 
 How students move around:
 - A lesson list at the top to jump to any lesson

@@ -88,6 +88,49 @@
       </form>
     </section>
 
+    <section id="pid-simulator" data-title="PID tuner (simulator)">
+      <h2>PID tuner (simulator)</h2>
+      <p>Try the three controller parts yourself. The graph shows how a simple system responds when the target jumps from 0 to 1 and the controller tries to make the output follow it. The system is a generic example, like a motor speed or a temperature that reacts with some delay.</p>
+
+      <div class="sim-controls">
+        <div class="sim-row">
+          <label for="sim-kp">Proportional (P) gain</label>
+          <input type="range" id="sim-kp" min="0" max="10" step="0.1" value="2">
+          <output id="sim-kp-out" for="sim-kp">2.0</output>
+        </div>
+        <div class="sim-row">
+          <label for="sim-ki">Integral (I) gain</label>
+          <input type="range" id="sim-ki" min="0" max="5" step="0.1" value="0">
+          <output id="sim-ki-out" for="sim-ki">0.0</output>
+        </div>
+        <div class="sim-row">
+          <label for="sim-kd">Derivative (D) gain</label>
+          <input type="range" id="sim-kd" min="0" max="5" step="0.1" value="0">
+          <output id="sim-kd-out" for="sim-kd">0.0</output>
+        </div>
+      </div>
+
+      <div class="sim-presets" role="group" aria-label="Preset settings">
+        <button type="button" data-kp="2" data-ki="0" data-kd="0">P only</button>
+        <button type="button" data-kp="2" data-ki="1" data-kd="0">PI</button>
+        <button type="button" data-kp="6" data-ki="3" data-kd="3">PID</button>
+        <button type="button" data-kp="9" data-ki="0" data-kd="0">Too aggressive</button>
+      </div>
+
+      <canvas id="sim-canvas" role="img" aria-label="Graph of the system output over 20 seconds compared with the target of 1"></canvas>
+      <p class="sim-legend">Solid line: the output. Dashed line: the target. Time runs left to right, in seconds.</p>
+      <ul id="sim-results"></ul>
+
+      <h3>Things to try</h3>
+      <ol>
+        <li>Press <strong>P only</strong>. The output settles below the target. That gap is the steady-state error.</li>
+        <li>Raise the P gain. The gap shrinks, but the output starts to swing around the target.</li>
+        <li>Press <strong>PI</strong>. The Integral part closes the gap, though the output takes a while to creep up to the target.</li>
+        <li>Press <strong>Too aggressive</strong>, then raise the D gain. The Derivative part calms the swinging.</li>
+        <li>Press <strong>PID</strong> to see all three parts working together.</li>
+      </ol>
+    </section>
+
     <section id="discussion-2" data-title="Discussion II: water pumping station">
       <h2>Discussion II: water pumping station</h2>
       <p>A smart water pumping station uses a PID controller to keep the water pressure in its distribution network constant. Explain how each of the P, I and D parts helps the station run in a stable and energy-efficient way.</p>
@@ -175,5 +218,6 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script src="js/simulator.js"></script>
 </body>
 </html>
