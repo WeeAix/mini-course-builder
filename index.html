@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Applications of Control Systems</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Green Applications of Control Systems</h1>
+    <button type="button" id="theme-toggle" aria-pressed="false">Dark theme</button>
+  </header>
+
+  <nav class="lesson-nav" aria-label="Lessons">
+    <ol id="lesson-list"></ol>
+  </nav>
+
+  <main>
+    <section id="welcome" data-title="Welcome">
+      <h2>Welcome</h2>
+      <p>This is Learning Unit 12 of E2109C Circuit Analysis and Control. It looks at how the control systems you have been studying are used to build greener, more sustainable technology.</p>
+      <p>Use the lesson list above, or the Previous and Next buttons below, to move through the lessons.</p>
+    </section>
+
+    <section id="objectives" data-title="Learning objective">
+      <h2>Learning objective</h2>
+      <p>By the end of this unit, you should be able to explain various applications of control systems in achieving green and sustainable operation.</p>
+    </section>
+
+    <section id="loops" data-title="Open-loop and closed-loop control">
+      <h2>Open-loop and closed-loop control</h2>
+      <p>Control systems play a vital role in sustainable engineering. Open-loop and closed-loop control are both used in green technologies, with the aim of improving energy efficiency and cutting waste.</p>
+      <p>An open-loop system does not check what is actually happening. A basic street lighting timer is a good example: it switches the lights on and off at fixed times, whatever the real light level is. It is cheap, but it cannot adapt, so lights may burn when they are not needed and energy is wasted.</p>
+      <p>A closed-loop system keeps measuring its output and adjusts it using that real-time feedback. This is why it is preferred when sustainability matters. Three examples:</p>
+      <ul>
+        <li><strong>Smart building heating and cooling (HVAC).</strong> Sensors measure the room temperature and adjust heating or cooling automatically, keeping people comfortable while using as little energy as possible.</li>
+        <li><strong>Solar panel tracking.</strong> Light sensors feed back to adjust the panel's angle, so it captures as much solar energy as possible through the day.</li>
+        <li><strong>Wastewater treatment plants.</strong> Sensors monitor water quality and automatically regulate the dose of chemicals, so the water is safe to discharge and little chemical is wasted.</li>
+      </ul>
+    </section>
+
+    <section id="discussion-1" data-title="Discussion I: smart building">
+      <h2>Discussion I: smart building</h2>
+      <p>A smart building uses a closed-loop control system to regulate its energy use. Identify one input, one output and one feedback signal for this system. Then explain why a closed-loop system suits this job better than an open-loop one.</p>
+      <details>
+        <summary>Show a sample answer</summary>
+        <ul>
+          <li><strong>Input (set-point):</strong> the temperature the occupants want, for example 23°C.</li>
+          <li><strong>Output:</strong> the actual room temperature, measured by the temperature sensor.</li>
+          <li><strong>Feedback signal:</strong> the difference (the error signal) between the desired 23°C and the actual temperature, sent back to the controller so it can take corrective action.</li>
+        </ul>
+        <p>A closed-loop system is more suitable because it adjusts heating and cooling automatically when conditions change, such as the outdoor temperature or the number of people in the room. The room stays accurately at the set-point, with no wasted energy from over-heating or over-cooling. An open-loop system would run at a fixed output regardless, wasting energy and making occupants less comfortable.</p>
+      </details>
+    </section>
+
+    <section id="pid" data-title="P, PI and PID control">
+      <h2>P, PI and PID control</h2>
+      <p>PID controllers are widely used in green technologies to get the best performance from a system and to avoid wasting energy. To design efficient, stable systems, you need to understand how each part of the controller (P, I and D) changes the system's behaviour.</p>
+      <ul>
+        <li><strong>Proportional (P) control</strong> responds immediately to the error. In a solar farm, a P controller can quickly adjust the inverter output when the sunlight changes suddenly. Its weakness is that it cannot remove steady-state error, so the system may never reach its exact target, which means a lasting loss of efficiency.</li>
+        <li><strong>Proportional-Integral (PI) control</strong> is the combination most commonly used in industry. The Integral part removes the steady-state error. That makes it ideal for something like wind turbine speed control, where holding the rotor speed precisely maximises the energy generated and protects the turbine from damage.</li>
+        <li><strong>Proportional-Integral-Derivative (PID) control</strong> adds the Derivative part, which acts in anticipation of changes. This reduces oscillations and improves stability. It is especially useful in electric vehicle (EV) motor control, where smooth, stable torque improves energy efficiency and extends battery life.</li>
+      </ul>
+    </section>
+
+    <section id="discussion-2" data-title="Discussion II: water pumping station">
+      <h2>Discussion II: water pumping station</h2>
+      <p>A smart water pumping station uses a PID controller to keep the water pressure in its distribution network constant. Explain how each of the P, I and D parts helps the station run in a stable and energy-efficient way.</p>
+      <details>
+        <summary>Show a sample answer</summary>
+        <p>The <strong>Proportional (P)</strong> part reacts straight away to any difference between the desired pressure (the set-point) and the actual pressure, changing the pump speed in proportion. This gives a fast first response but may leave a small leftover pressure error.</p>
+        <p>The <strong>Integral (I)</strong> part adds up the error over time and removes the leftover error from the P part, so the pressure reaches and holds exactly the set-point. The pump is not made to work harder than necessary, which lowers energy use.</p>
+        <p>The <strong>Derivative (D)</strong> part anticipates rapid changes in demand and dampens oscillations before they build up. The pump runs more smoothly, there is less mechanical wear, and energy spikes caused by oscillation are avoided, so the whole system is more efficient and sustainable.</p>
+      </details>
+    </section>
+
+    <section id="response" data-title="Transient and steady-state response">
+      <h2>Transient and steady-state response</h2>
+      <p>Analysing a system's transient and steady-state response tells you how efficiently it reaches and then holds its desired operating condition. In sustainable engineering, a short transient period and a stable steady state mean lower energy use and a more reliable system.</p>
+      <p>The <strong>transient response</strong> is how the system behaves right after a change is applied. A poorly designed transient response causes problems in green technology:</p>
+      <ul>
+        <li><strong>Underdamped:</strong> the output oscillates too much. In a solar inverter this can make the grid voltage unstable, causing energy losses and possible damage to connected equipment.</li>
+        <li><strong>Overdamped:</strong> the system is sluggish. In an electric vehicle's regenerative braking, it takes too long to recover energy while braking, so overall efficiency drops.</li>
+        <li><strong>Critically damped:</strong> the ideal in most sustainable applications. The output reaches the desired value as fast as possible with no oscillation, which maximises energy efficiency.</li>
+      </ul>
+      <p>The <strong>steady-state response</strong> is the system's long-term behaviour once the transient has died out. In a sustainable system, a stable steady state means it runs consistently at its target set-point and avoids using energy it does not need.</p>
+    </section>
+
+    <section id="discussion-3" data-title="Discussion III: wind turbine">
+      <h2>Discussion III: wind turbine</h2>
+      <p>A wind turbine's control system uses a feedback controller to regulate the rotor speed. Its unit-step response turns out to be underdamped. Describe how this affects the turbine's performance, and suggest which type of response would be better and why.</p>
+      <details>
+        <summary>Show a sample answer</summary>
+        <p>An underdamped response means the rotor speed swings above and below the set-point before it finally settles. That is undesirable for a wind turbine. The repeated overshoot puts mechanical stress on the blades and drivetrain, raising wear and maintenance costs. The oscillations also make the power output fluctuate, which can destabilise the electrical grid and lower the quality of the energy delivered.</p>
+        <p>A critically damped response would be better. The rotor speed reaches the set-point as quickly as possible with no oscillation. Power generation is smooth and consistent, mechanical stress is reduced, and the most energy is captured from the wind, so the turbine runs more efficiently and sustainably.</p>
+      </details>
+    </section>
+
+    <section id="steady-state-error" data-title="Steady-state error">
+      <h2>Steady-state error</h2>
+      <p>Steady-state error analysis tells you how accurate a control system is in the long run. In sustainable engineering this matters because even a small error that never goes away can add up to wasted energy, lower efficiency and higher running costs.</p>
+      <p>The static error coefficients (Kp, Kv and Ka) are a systematic way to measure how accurately a system tracks different kinds of input once it has settled. Knowing them lets engineers design systems that stay as close to their target set-points as possible.</p>
+      <ul>
+        <li><strong>Position error coefficient (Kp)</strong> is about holding a constant output accurately. In a smart building's energy management, a high Kp keeps the indoor temperature right at the set-point, avoiding heating or cooling that wastes energy.</li>
+        <li><strong>Velocity error coefficient (Kv)</strong> is about following an input that changes gradually. In a solar panel tracker, a high Kv means the panel follows the sun's movement closely all day, capturing the most solar energy with little tracking error.</li>
+        <li><strong>Acceleration error coefficient (Ka)</strong> is about following an input that changes quickly. In an electric vehicle's adaptive cruise control, a high Ka means the vehicle speed follows fast-changing road conditions accurately, which helps energy use and regenerative braking efficiency.</li>
+      </ul>
+    </section>
+
+    <section id="discussion-4" data-title="Discussion IV: solar inverter">
+      <h2>Discussion IV: solar inverter</h2>
+      <p>A Type 0 closed-loop control system regulates the output voltage of a solar inverter. When a unit step input is applied, a finite (fixed, non-zero) steady-state error is observed. Explain how this error affects the inverter's performance, and suggest how the system could be improved to remove it.</p>
+      <details>
+        <summary>Show a sample answer</summary>
+        <p>A finite steady-state error means the inverter cannot hold the exact voltage it should at steady state. The lasting voltage deviation can make the inverter deliver slightly more or less power than the grid needs, lowering the efficiency of the solar energy system. Over time, even a small error can add up to large energy losses. In severe cases the deviation can trip protective relays and cut off the power delivery completely.</p>
+        <p>To remove the error, upgrade the system from Type 0 to Type 1 by adding an integrator (the I part) to the forward path of the control loop. The integral action accumulates the error over time and keeps adjusting the controller output until the steady-state error is zero. The output voltage then matches the set-point exactly, improving both the accuracy and the energy efficiency of the inverter.</p>
+      </details>
+    </section>
+
+    <section id="thanks" data-title="Thank you">
+      <h2>Thank you</h2>
+      <p>That is the end of Learning Unit 12. Use the lesson list to revisit any lesson.</p>
+    </section>
+  </main>
+
+  <div class="pager">
+    <button type="button" id="prev-btn">Previous</button>
+    <span id="position" aria-live="polite"></span>
+    <button type="button" id="next-btn">Next</button>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

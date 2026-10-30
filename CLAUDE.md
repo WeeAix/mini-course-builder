@@ -7,9 +7,10 @@
 
 ## Project Structure
 
-The repository is nearly empty for now; it only contains `README.md`.
-As files are added, keep them at the top level or in simple folders
-(for example `css/`, `js/`) and update this section.
+- `index.html`: the single page; every lesson is a `<section>` inside `<main>`
+- `css/styles.css`: styles, including the light and dark theme colors
+- `js/main.js`: lesson switching (one section shown at a time) and the theme toggle
+- The original slide deck is not stored in the repository.
 
 ## Key Requirements
 
@@ -26,18 +27,19 @@ As files are added, keep them at the top level or in simple folders
 
 ### Site structure
 
-One long scrolling page, in this order:
+One page, with one lesson section shown at a time (JavaScript switches
+between them; there are no separate pages):
 
 1. Header: course title and theme toggle
-2. Intro: who it's for and what students will learn
-3. Lessons: one section per slide (3-5), each with the slide's content,
-   any slide image, and a short quiz
-4. Recap: the key ideas in a few lines
+2. Lessons: one section per slide, in the deck's order, except that the
+   two identical title slides are one Welcome section and the Learning
+   Objective comes right after it
+3. Discussion slides become a question with a "Show a sample answer" reveal
 
 How students move around:
-- Scroll down through the lessons in order
-- A sticky top bar with jump links to each lesson
-- A "Next lesson" link at the end of each lesson
+- A lesson list at the top to jump to any lesson
+- Previous and Next buttons below the lesson
+- The address ends in `#lesson-id`, so a lesson can be linked to directly
 
 ### Phases
 

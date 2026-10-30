@@ -1,0 +1,114 @@
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #555555;
+  --border: #cccccc;
+  --link: #0645ad;
+}
+
+:root[data-theme="dark"] {
+  --bg: #121212;
+  --text: #eeeeee;
+  --muted: #aaaaaa;
+  --border: #444444;
+  --link: #8ab4f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 16px 32px;
+  max-width: 44rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+[hidden] {
+  display: none;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+button {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+
+.lesson-nav ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson-nav button {
+  padding: 0 10px;
+  font-size: 0.9rem;
+}
+
+.lesson-nav button[aria-current="true"] {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+main h2 {
+  margin-top: 8px;
+}
+
+details {
+  margin: 16px 0;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+#position {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
