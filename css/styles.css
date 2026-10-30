@@ -1,17 +1,32 @@
 :root {
-  --bg: #ffffff;
-  --text: #1a1a1a;
-  --muted: #555555;
-  --border: #cccccc;
-  --link: #0645ad;
+  --bg: #f4faf5;
+  --card: #ffffff;
+  --text: #14301f;
+  --muted: #4a6355;
+  --border: #cfe5d5;
+  --primary: #1e8e4e;
+  --primary-strong: #17703d;
+  --on-primary: #ffffff;
+  --accent: #f2b705;
+  --callout-bg: #fffbe6;
+  --band-bg: #17703d;
+  --band-text: #ffffff;
+  --measure: 44rem;
 }
 
 :root[data-theme="dark"] {
-  --bg: #121212;
-  --text: #eeeeee;
-  --muted: #aaaaaa;
-  --border: #444444;
-  --link: #8ab4f8;
+  --bg: #0e1a13;
+  --card: #16271d;
+  --text: #e6f4ea;
+  --muted: #9fb8a8;
+  --border: #2a4434;
+  --primary: #5ed68c;
+  --primary-strong: #5ed68c;
+  --on-primary: #0e1a13;
+  --accent: #f5c84b;
+  --callout-bg: #232818;
+  --band-bg: #123d25;
+  --band-text: #e6f4ea;
 }
 
 * {
@@ -19,83 +34,176 @@
 }
 
 body {
-  margin: 0 auto;
-  padding: 0 16px 32px;
-  max-width: 44rem;
+  margin: 0;
+  padding-bottom: 32px;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.65;
 }
 
 [hidden] {
   display: none;
 }
 
+h1,
+h2 {
+  font-family: "Poppins", system-ui, sans-serif;
+  line-height: 1.25;
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary-strong);
+  outline-offset: 2px;
+}
+
+.site-header :focus-visible {
+  outline-color: var(--band-text);
+}
+
+/* Header band: full width, with content lined up to the page column */
 .site-header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 16px max(16px, calc((100% - var(--measure)) / 2 + 16px));
+  background: var(--band-bg);
+  color: var(--band-text);
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.35rem;
 }
 
 button {
   min-height: 44px;
   padding: 0 16px;
   border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--bg);
+  border-radius: 6px;
+  background: var(--card);
   color: var(--text);
   font: inherit;
+  font-weight: 600;
   cursor: pointer;
 }
 
 button:disabled {
   color: var(--muted);
   cursor: default;
+  opacity: 0.6;
 }
 
+.site-header button {
+  border-color: var(--band-text);
+  background: transparent;
+  color: var(--band-text);
+}
+
+/* Progress bar under the header */
+.progress {
+  height: 6px;
+  background: var(--border);
+}
+
+#progress-fill {
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #progress-fill {
+    transition: none;
+  }
+}
+
+.lesson-nav,
+main,
+.pager {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+/* Lesson list as tabs with a green underline on the current lesson */
 .lesson-nav ol {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  margin: 16px 0;
+  gap: 2px 4px;
+  margin: 12px 0;
   padding: 0;
   list-style: none;
 }
 
 .lesson-nav button {
   padding: 0 10px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
   font-size: 0.9rem;
+  font-weight: 400;
 }
 
 .lesson-nav button[aria-current="true"] {
-  font-weight: bold;
-  text-decoration: underline;
+  border-bottom-color: var(--primary);
+  font-weight: 700;
+}
+
+/* On phones, keep the lesson list to one row that scrolls sideways */
+@media (max-width: 600px) {
+  .lesson-nav ol {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .lesson-nav button {
+    white-space: nowrap;
+  }
+}
+
+/* The lesson itself */
+main {
+  padding-block: 8px 24px;
+}
+
+main section {
+  padding: 8px 20px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
 }
 
 main h2 {
-  margin-top: 8px;
+  margin-top: 16px;
+  color: var(--primary-strong);
 }
 
+li::marker {
+  color: var(--primary);
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* Sample answers */
 details {
   margin: 16px 0;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-left: 5px solid var(--accent);
+  border-radius: 6px;
+  background: var(--callout-bg);
 }
 
 summary {
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .pager {
@@ -103,9 +211,18 @@ summary {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
+}
+
+.pager #next-btn {
+  border-color: var(--primary-strong);
+  background: var(--primary-strong);
+  color: var(--on-primary);
+}
+
+.pager #next-btn:disabled {
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--muted);
 }
 
 #position {

@@ -9,7 +9,15 @@
 
 - `index.html`: the single page; every lesson is a `<section>` inside `<main>`
 - `css/styles.css`: styles, including the light and dark theme colors
-- `js/main.js`: lesson switching (one section shown at a time) and the theme toggle
+- `js/main.js`: lesson switching (one section shown at a time), the progress bar and the theme toggle
+
+## Design
+
+"Green Tech": Poppins headings and Inter body text (loaded from Google Fonts,
+with system fonts as the fallback). Green header band, a progress bar under it,
+lesson list as tabs with a green underline, and sample answers in a
+yellow-edged box. The light and dark colors are variables at the top of
+`css/styles.css`.
 - The original slide deck is not stored in the repository.
 
 ## Key Requirements
@@ -50,4 +58,5 @@ How students move around:
   works on desktop, tablet, and phone
 
 **Phase 2: polish**
-- To be decided after Phase 1 (for example a progress indicator)
+- Visual design: done (see Design above)
+- Anything else to be decided

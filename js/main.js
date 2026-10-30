@@ -4,6 +4,7 @@ var prevBtn = document.getElementById('prev-btn');
 var nextBtn = document.getElementById('next-btn');
 var position = document.getElementById('position');
 var themeBtn = document.getElementById('theme-toggle');
+var progressFill = document.getElementById('progress-fill');
 var current = 0;
 var navButtons = [];
 
@@ -33,9 +34,11 @@ function show(index) {
       button.removeAttribute('aria-current');
     }
   });
+  navButtons[index].scrollIntoView({ block: 'nearest', inline: 'nearest' });
   prevBtn.disabled = index === 0;
   nextBtn.disabled = index === sections.length - 1;
   position.textContent = 'Lesson ' + (index + 1) + ' of ' + sections.length;
+  progressFill.style.width = ((index + 1) / sections.length) * 100 + '%';
   if (location.hash !== '#' + sections[index].id) {
     history.replaceState(null, '', '#' + sections[index].id);
   }
