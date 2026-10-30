@@ -71,6 +71,29 @@ window.addEventListener('hashchange', function () {
   show(indexFromHash());
 });
 
+// Check-in questions: show whether the answer was right; Next is never blocked.
+Array.prototype.forEach.call(document.querySelectorAll('.check-in'), function (form) {
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var feedback = form.querySelector('.feedback');
+    var chosen = form.querySelector('input:checked');
+    if (!chosen) {
+      feedback.textContent = 'Pick an answer first.';
+      return;
+    }
+    var right = chosen.value === form.getAttribute('data-correct');
+    var correctLabel = form.querySelector('input[value="' + form.getAttribute('data-correct') + '"]').parentNode.textContent.trim();
+    feedback.textContent = (right ? 'Correct! ' : 'Not quite. The answer is: ' + correctLabel.replace(/\.$/, '') + '. ') +
+      form.getAttribute('data-explain') + ' You can go on to the next lesson.';
+    feedback.className = 'feedback ' + (right ? 'right' : 'wrong');
+    chosen.parentNode.classList.add('chosen');
+    form.querySelector('input[value="' + form.getAttribute('data-correct') + '"]').parentNode.classList.add('is-correct');
+    Array.prototype.forEach.call(form.querySelectorAll('input, button'), function (el) {
+      el.disabled = true;
+    });
+  });
+});
+
 // Theme toggle: light by default, choice remembered when storage is available.
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);

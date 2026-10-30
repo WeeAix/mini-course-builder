@@ -206,6 +206,79 @@ summary {
   font-weight: 700;
 }
 
+/* Check-in question at the end of a lesson */
+.check-in {
+  margin: 24px 0 12px;
+  padding: 12px 16px;
+  border: 2px dashed var(--primary);
+  border-radius: 8px;
+}
+
+.check-in fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.check-in legend {
+  padding: 0;
+  font-weight: 700;
+}
+
+.check-in label {
+  display: block;
+  min-height: 44px;
+  padding: 10px 0;
+}
+
+.check-in label.chosen {
+  font-weight: 700;
+}
+
+.check-in label.chosen::after {
+  content: " (your answer)";
+}
+
+.check-in label.is-correct::after {
+  content: " (correct answer)";
+  color: var(--primary-strong);
+}
+
+.check-in label.chosen.is-correct::after {
+  content: " (your answer, correct)";
+}
+
+.check-in button {
+  margin-top: 4px;
+  border-color: var(--primary-strong);
+  background: var(--primary-strong);
+  color: var(--on-primary);
+}
+
+.check-in button:disabled {
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--muted);
+}
+
+.feedback {
+  margin: 12px 0 0;
+}
+
+.feedback:empty {
+  display: none;
+}
+
+.feedback.right {
+  font-weight: 600;
+  color: var(--primary-strong);
+}
+
+.feedback.wrong {
+  padding-left: 10px;
+  border-left: 4px solid var(--accent);
+}
+
 .pager {
   display: flex;
   align-items: center;

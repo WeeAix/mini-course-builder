@@ -42,6 +42,16 @@
         <li><strong>Solar panel tracking.</strong> Light sensors feed back to adjust the panel's angle, so it captures as much solar energy as possible through the day.</li>
         <li><strong>Wastewater treatment plants.</strong> Sensors monitor water quality and automatically regulate the dose of chemicals, so the water is safe to discharge and little chemical is wasted.</li>
       </ul>
+      <form class="check-in" data-correct="b" data-explain="A fixed-time timer never checks the real light level, so it cannot adapt. That is what makes it open-loop, and it can leave lights on when they are not needed.">
+        <fieldset>
+          <legend>Check-in: A street light timer switches on and off at fixed times, whatever the real light level is. Which statement is correct?</legend>
+          <label><input type="radio" name="check-loops" value="a"> It is closed-loop, because it uses a timer.</label>
+          <label><input type="radio" name="check-loops" value="b"> It is open-loop, so it cannot adapt and may waste energy.</label>
+          <label><input type="radio" name="check-loops" value="c"> It is closed-loop, because it switches the lights ON and OFF.</label>
+        </fieldset>
+        <button type="submit">Check answer</button>
+        <p class="feedback" role="status"></p>
+      </form>
     </section>
 
     <section id="discussion-1" data-title="Discussion I: smart building">
@@ -66,6 +76,16 @@
         <li><strong>Proportional-Integral (PI) control</strong> is the combination most commonly used in industry. The Integral part removes the steady-state error. That makes it ideal for something like wind turbine speed control, where holding the rotor speed precisely maximises the energy generated and protects the turbine from damage.</li>
         <li><strong>Proportional-Integral-Derivative (PID) control</strong> adds the Derivative part, which acts in anticipation of changes. This reduces oscillations and improves stability. It is especially useful in electric vehicle (EV) motor control, where smooth, stable torque improves energy efficiency and extends battery life.</li>
       </ul>
+      <form class="check-in" data-correct="c" data-explain="The Integral part adds up the error over time until it is gone. The Proportional part alone may never reach the exact target, and the Derivative part reduces oscillations instead.">
+        <fieldset>
+          <legend>Check-in: Which part of a PID controller removes steady-state error?</legend>
+          <label><input type="radio" name="check-pid" value="a"> Proportional (P)</label>
+          <label><input type="radio" name="check-pid" value="b"> Derivative (D)</label>
+          <label><input type="radio" name="check-pid" value="c"> Integral (I)</label>
+        </fieldset>
+        <button type="submit">Check answer</button>
+        <p class="feedback" role="status"></p>
+      </form>
     </section>
 
     <section id="discussion-2" data-title="Discussion II: water pumping station">
@@ -89,6 +109,16 @@
         <li><strong>Critically damped:</strong> the ideal in most sustainable applications. The output reaches the desired value as fast as possible with no oscillation, which maximises energy efficiency.</li>
       </ul>
       <p>The <strong>steady-state response</strong> is the system's long-term behaviour once the transient has died out. In a sustainable system, a stable steady state means it runs consistently at its target set-point and avoids using energy it does not need.</p>
+      <form class="check-in" data-correct="a" data-explain="A critically damped response reaches the desired output as fast as possible with no oscillation. Underdamped oscillates too much, and overdamped is too sluggish.">
+        <fieldset>
+          <legend>Check-in: Which transient response is usually ideal in sustainable applications?</legend>
+          <label><input type="radio" name="check-response" value="a"> Critically damped</label>
+          <label><input type="radio" name="check-response" value="b"> Underdamped</label>
+          <label><input type="radio" name="check-response" value="c"> Overdamped</label>
+        </fieldset>
+        <button type="submit">Check answer</button>
+        <p class="feedback" role="status"></p>
+      </form>
     </section>
 
     <section id="discussion-3" data-title="Discussion III: wind turbine">
@@ -110,6 +140,16 @@
         <li><strong>Velocity error coefficient (Kv)</strong> is about following an input that changes gradually. In a solar panel tracker, a high Kv means the panel follows the sun's movement closely all day, capturing the most solar energy with little tracking error.</li>
         <li><strong>Acceleration error coefficient (Ka)</strong> is about following an input that changes quickly. In an electric vehicle's adaptive cruise control, a high Ka means the vehicle speed follows fast-changing road conditions accurately, which helps energy use and regenerative braking efficiency.</li>
       </ul>
+      <form class="check-in" data-correct="b" data-explain="Kv is about following an input that changes gradually, like the sun moving across the sky. Kp is about holding a constant output, and Ka is about inputs that change quickly.">
+        <fieldset>
+          <legend>Check-in: In a solar panel tracker, which coefficient being high means the panel follows the sun's slow movement accurately?</legend>
+          <label><input type="radio" name="check-error" value="a"> Position error coefficient (Kp)</label>
+          <label><input type="radio" name="check-error" value="b"> Velocity error coefficient (Kv)</label>
+          <label><input type="radio" name="check-error" value="c"> Acceleration error coefficient (Ka)</label>
+        </fieldset>
+        <button type="submit">Check answer</button>
+        <p class="feedback" role="status"></p>
+      </form>
     </section>
 
     <section id="discussion-4" data-title="Discussion IV: solar inverter">
